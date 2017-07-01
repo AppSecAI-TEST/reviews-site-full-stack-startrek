@@ -3,7 +3,7 @@ body {
 	color: white;
 	font-family: 'Bubbler One', sans-serif;
 	max-width: 1040px;
-	min-width: 950px;
+	min-width: 1033px;
 	margin: auto;
 }
 
@@ -85,7 +85,7 @@ li a, a:active {
 	font-size: 35px;
 }
 
-.content {
+.content, .content p {
 	margin: 10px 50px;
 }
 
@@ -105,8 +105,9 @@ li a, a:active {
 }
 
 .enterprise-thumb {
-	position: absolute;
-	margin-left: 800px;
+	margin: 20px;
+	margin-left: 880px;
+	position: relative;
 }
 
 img.rating {
@@ -115,6 +116,6 @@ img.rating {
 
 .copyright {
 	display: flex;
-	align-content: center;
+	align-items: flex-end;
 	justify-content: center;
 }
