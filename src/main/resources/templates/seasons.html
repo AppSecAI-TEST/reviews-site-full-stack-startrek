@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+	<link rel="stylesheet" type="text/css" href="/style.css" />
+	<link href="https://fonts.googleapis.com/css?family=Bubbler+One|Josefin+Sans:400, 600" rel="stylesheet"/>
+	<title>Paige's TNG Reviews - Home</title>
+</head>
+<body>
+	<h1 class="heading page-title">Paige's Reviews - Star Trek: The Next Generation</h1>
+	<div class="divider">
+	</div>
+		<div class="navbar">
+		<img class="main-logo" src="/images/sttnglaser_logo.jpg"
+		alt="Logo for Star Trek TNG - The Enterprise flying over a planet" />
+		<div class="navbar-text">
+			<div class="navbar-seasons">
+				<p th:each="current: ${seasons}">
+					<a th:href="@{/tngseason(id=${current.id})}" th:text="'Season ' + ${current.name}" />
+				</p>
+			</div>	
+			<div class="home-page">
+					<a th:href="@{/home}">Back to Home Page &rarr;</a>
+			</div>
+		</div>
+	</div>
+	<div class="divider">
+	</div>
+	<h2 class="heading home-title">Space... the last frontier...</h2>
+	<div class="content">
+	<p>Welcome to my Star Trek: The Next Generation review site. This site began as a project during a coding boot camp and is still a work in progress. Not all reviews are complete, but I update this site as time allows. Enjoy! (Reviews do contain spoilers)</p>
+	</div>
+	<h2 class="heading home-title-closer">...where no one has gone before!</h2>
+	<img class="enterprise-thumb" src="/images/thumb_enterprise.jpg" alt="Enterprise thumbnail"/>
+</body>
+<footer class="copyright">&#169; All STAR TREK trademarks and logos are owned by CBS Studios Inc.</footer>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+	<title th:text="'Review for ' + ${episode.name}" />
+	<link rel="stylesheet" type="text/css" href="/style.css"/>
+		<link href="https://fonts.googleapis.com/css?family=Bubbler+One|Josefin+Sans:400, 600" rel="stylesheet"/>
+</head>
+<body>
+	<h1 class="heading page-title">Paige's Reviews - Star Trek: The Next Generation</h1>
+		<div class="divider">
+	</div>
+	<div class="navbar">
+		<img class="main-logo" src="/images/sttnglaser_logo.jpg"
+		alt="Logo for Star Trek TNG - The Enterprise flying over a planet" />
+		<div class="navbar-text">
+			<div class="navbar-seasons">
+				<p th:each="current: ${seasons}">
+					<a th:href="@{/tngseason(id=${current.id})}" th:text="'Season ' + ${current.name}" />
+				</p>
+			</div>	
+			<div class="home-page">
+					<a th:href="@{/home}">Back to Home Page &rarr;</a>
+			</div>
+		</div>
+	</div>
+		<div class="divider">
+	</div>
+
+	<h2 class="heading title" th:text="'Review for Season ' + ${episode.season} + ' Episode ' + ${episode.episodeNumber} + ': ' + ${episode.name}" />
+	<div class="content">
+		<ul>
+				<li><img class="episode-image" th:src="${episode.imageUrl}" th:alt="'Photo for Episode ' + ${episode.episodeNumber} + ': '  + ${episode.name}"/></li >
+				<li><img class="rating" th:src="${episode.fetchRatingImage(episode.rating)}" th:alt="${episode.rating}"/></li>
+			</ul> 
+
+			<p th:text="${episode.review}"/>
+		</div>
+	</body>
+	<footer class="copyright">&#169; All STAR TREK trademarks and logos are owned by CBS Studios Inc.</footer>
+	</html>
