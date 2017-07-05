@@ -6,6 +6,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
+import javax.persistence.OrderBy;
 
 @Entity
 public class Season {
@@ -14,6 +15,7 @@ public class Season {
 	@GeneratedValue
 	private Long id;
 	
+	@OrderBy("episodeNumber")
 	@OneToMany(mappedBy = "season")
 	private Set<Episode> episodes;
 	

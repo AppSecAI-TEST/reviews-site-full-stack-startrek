@@ -1,6 +1,9 @@
 package com.paigeruppel.startrekreviews;
 
+import java.util.Set;
+
 import javax.annotation.Resource;
+import javax.persistence.OrderBy;
 
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
@@ -13,6 +16,7 @@ public class StarTrekReviewPopulator implements CommandLineRunner {
 
 	@Resource
 	private EpisodeRepository tngEpisodeRepo;
+
 
 	@Override
 	public void run(String... args) throws Exception {
@@ -31,13 +35,15 @@ public class StarTrekReviewPopulator implements CommandLineRunner {
 		tngSeasonRepo.save(five);
 		tngSeasonRepo.save(six);
 		tngSeasonRepo.save(seven);
-
+		
 		Episode oneOne = new Episode(one, "1", "Encounter at Farpoint",
 				"The newly assembled Enterprise crew embarks on the ship's maiden voyage where they are confronted by Q",
 				"Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.");
 		oneOne.setImageUrl("/images/episode101.jpg");
+		oneOne.setRating(4);
 		Episode oneTwo = new Episode(one, "2", "The Naked Now", "Lorem ipsum blah blah blah",
 				"Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.");
+		oneTwo.setRating(4);
 		tngEpisodeRepo.save(oneOne);
 		tngEpisodeRepo.save(oneTwo);
 
@@ -46,7 +52,7 @@ public class StarTrekReviewPopulator implements CommandLineRunner {
 				"Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.");
 		fiveOne.setImageUrl("/images/episode501.jpg");
 		fiveOne.setRating(4);
-		Episode fiveTwo = new Episode(five, "02", "Darmok",
+		Episode fiveTwo = new Episode(five, "2", "Darmok",
 				"Picard struggles to bridge a language barrier with an alien captain while re-enacting an ancient battle.",
 				"Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.");
 		fiveTwo.setImageUrl("/images/episode502.jpg");
