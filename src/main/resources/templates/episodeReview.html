@@ -6,6 +6,7 @@
 		<link href="https://fonts.googleapis.com/css?family=Bubbler+One|Josefin+Sans:400, 600" rel="stylesheet"/>
 </head>
 <body>
+<!--Begin Navbar  -->
 	<h1 class="heading page-title">Paige's Reviews - Star Trek: The Next Generation</h1>
 		<div class="divider">
 	</div>
@@ -25,16 +26,47 @@
 	</div>
 		<div class="divider">
 	</div>
+<!--End Navbar-->
 
+<!--Begin Review Content-->
 	<h2 class="heading title" th:text="'Review for Season ' + ${episode.season} + ' Episode ' + ${episode.episodeNumber} + ': ' + ${episode.name}" />
 	<div class="content">
 		<ul>
 				<li><img class="episode-image" th:src="${episode.imageUrl}" th:alt="'Photo for Episode ' + ${episode.episodeNumber} + ': '  + ${episode.name}"/></li >
-				<li><img class="rating" th:src="${episode.fetchRatingImage(episode.rating)}" th:alt="${episode.rating}"/></li>
+				<li>Rating: <img class="rating" th:src="${episode.fetchRatingImage(episode.rating)}" th:alt="${episode.rating}"/></li>
 			</ul> 
 
-			<p th:text="${episode.review}"/>
+			<p class="review-text" th:text="${episode.review}"/>
+			
+		<h3 class="content-heading">Featured Characters:</h3>	
+		<ul class="character-list" th:each="current: ${episode.characters}">
+		<li th:text="${current.name}"/>
+		</ul>					
+	</div>
+<!-- End Review Content -->
+			
+	<div class="comment-divider"></div>	
+	
+	<h2 class="comment-heading" th:text="'Comments: ' + ${episode.name}"></h2>
+		<div class="comments" th:each="currentComments: ${episode.comments}" >
+			<h3 th:text="${currentComments.title}"></h3>
+			<p th:text="${currentComments.content}"/>
 		</div>
+		
+		<div class="submit-comment">
+		<h2 class="add-comment">Add a comment to this Review:</h2>
+		<form method="POST">
+		<ul>
+			<li><input type="hidden" name="episodeId" th:value="*{episode.id}" /></li>
+			<li><label>Title: <input type="text" name="title" /></label></li>
+			<li><label>Content: <textarea name="content" rows="7" cols="50">default content</textarea></label></li>
+			<li><button th:formaction="@{/createComment}">Submit Comment</button></li>
+		</ul>
+		</form>
+		
+		</div>
+		
+		
 	</body>
 	<footer class="copyright">&#169; All STAR TREK trademarks and logos are owned by CBS Studios Inc.</footer>
 	</html>

@@ -78,6 +78,13 @@ li a, a:active {
 	height: 2px;
 }
 
+.comment-divider {
+	background-color: white;
+	margin-top: 20px;
+	margin-bottom: 5px;
+	height: 1px;
+}
+
 .home-title, .title {
 	display: flex;
 	align-content: center;
@@ -92,6 +99,7 @@ li a, a:active {
 .content li {
 	list-style: none;
 	margin-top: 10px;
+	font-family: 'Josefin Sans', sans-serif;
 }
 
 .episode-title {
@@ -114,8 +122,139 @@ img.rating {
 	width: 120px;
 }
 
+.content-heading {
+	margin-left: 38px;
+	margin-bottom: -10px;
+}
+
+.character-list li {
+	margin: 2px 50px;
+}
 .copyright {
 	display: flex;
 	align-items: flex-end;
 	justify-content: center;
+}
+
+.character-list ul {
+	display: flex;
+	flex-direction: column;
+	margin-left: 50px;
+}
+
+.character-list li {
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	justify-content: flex-start;
+	list-style: none;
+	margin: 10px;
+}
+
+.character-name {
+	font-size: 18px;
+	font-weight: 600;
+}
+
+.character-list label {
+	margin-left: 30px;
+}
+
+.character-list button {
+	background: #871a8e;
+	border: 1px solid #92cbff;
+	border-radius: 3px;
+	color: white;
+	font-family: 'Josefin Sans', sans-serif;	
+	margin-top: 4px;
+	padding: 3px 8px;
+}
+
+.character-list button.delete {
+	background: black;
+	border: 2px solid white;
+	color: #ff325a;
+	display: flex;
+	margin-top: 3px;
+	margin-left: 30px;
+}
+
+.character-list select {
+	background-color: #84948d;
+	border: 1px solid #871a8e;
+	border-radius: 5px;
+	color: white;
+	font-family: 'Josefin Sans', sans-serif;	
+   -moz-border-radius: 5px;
+   -webkit-border-radius: 5px;
+	width: 300px;
+}
+
+
+.submission {
+	font-family: 'Josefin Sans', sans-serif;
+}
+
+.add-comment {
+	margin-left: 50px;
+	font-family: 'Josefin Sans', sans-serif;
+}
+
+.submit-comment ul {
+	display: flex;
+	flex-direction: column;
+	margin-left: 50px;
+	margin-top: -30px;
+}
+
+.submit-comment li {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	list-style: none;
+	margin: 10px;
+}
+
+.submit-comment input {
+	border: 1px solid grey;
+	border-radius: 3px;
+	margin-left: 20px;
+	font-weight: 600;
+	font-family: 'Bubbler One', sans-serif;
+}
+
+.submit-comment textarea {
+	border: 1px solid grey;	
+	border-radius: 3px;
+	font-family: 'Bubbler One', sans-serif;
+	font-size: 15px;
+	font-weight: 600;
+}
+
+.submit-comment button {
+	background: #871a8e;
+	border: 1px solid #92cbff;
+	border-radius: 3px;
+	color: white;
+	font-family: 'Josefin Sans', sans-serif;
+
+}
+
+.comment-heading {
+	font-family: 'Josefin Sans', sans-serif;
+	margin-left: 50px;
+}
+
+
+.comments {
+	border: solid 1px white;
+	border-radius: 3px;
+	margin-left: 100px;
+	margin-top: 25px;
+	padding: 0px 15px;
+	width: 500px;
+}
+
+.comments h3 {
+	font-size: 25px;
 }

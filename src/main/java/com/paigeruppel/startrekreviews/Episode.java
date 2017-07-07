@@ -1,13 +1,16 @@
 package com.paigeruppel.startrekreviews;
 
+import java.util.Arrays;
+import java.util.HashSet;
 import java.util.Set;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Lob;
+import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
-import javax.persistence.OrderBy;
+import javax.persistence.OneToMany;
 
 @Entity
 public class Episode {
@@ -16,10 +19,16 @@ public class Episode {
 	@Id
 	private Long id;
 
+	@ManyToMany
+	private Set<Character> characters;
+	
+	@OneToMany(mappedBy = "episode")
+	private Set<Comment> comments;
+	
 	@ManyToOne
 	private Season season;
 
-	private String episodeNumber;
+	private int episodeNumber;
 
 	private String imageUrl;
 
@@ -34,7 +43,7 @@ public class Episode {
 	private String review;
 	
 
-	public String getEpisodeNumber() {
+	public int getEpisodeNumber() {
 		return episodeNumber;
 	}
 
@@ -52,6 +61,10 @@ public class Episode {
 
 	public String getDescription() {
 		return description;
+	}
+
+	public Set<Comment> getComments() {
+		return comments;
 	}
 
 	public void setDescription(String description) {
@@ -102,21 +115,33 @@ public class Episode {
 		
 	}
 
+	public Set<Character> getCharacters() {
+		return characters;
+	}
+
 	private Episode() {
 	}
 
-	public Episode(Season season, String episodeNumber, String name, String description, String review) {
+	public Episode(Season season, int episodeNumber, String name, String description, String review, Character...characterTags) {
 		this.season = season;
 		this.episodeNumber = episodeNumber;
 		this.name = name;
 		this.description = description;
 		this.review = review;
+		this.characters = new HashSet<>(Arrays.asList(characterTags));
 	}
 
-	public Episode(Season season, String episodeNumber, String name) {
+	public Episode(Season season, int episodeNumber, String name) {
 		this.season = season;
 		this.episodeNumber = episodeNumber;
 		this.name = name;
+		this.description = "This episode has not yet been reviewed";
+		this.review = "Looks like this episode still needs a review! If you have comments, please add them below";
+		
+	}
+	
+	public void removeCharacter(Character character) {
+		characters.remove(character);
 	}
 
 }

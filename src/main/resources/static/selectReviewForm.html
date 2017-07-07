@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Select a Review</title>
+<link rel="stylesheet" type="text/css" href="/style.css" />
+<link
+	href="https://fonts.googleapis.com/css?family=Bubbler+One|Josefin+Sans:400, 600"
+	rel="stylesheet" />
+</head>
+<body>
+	<!-- default method is GET -->
+	<!-- with input for submission -->
+	<h1>GET using &lt;input&gt; element for submit button</h1>
+	<p>The default method for a form is GET, so we haven't specified
+		it.</p>
+	<form action="/tngseason/episode">
+		<!-- action builds first part of the url -->
+		<label> Review id: <input type="text" name="id" /> <!--name builds second part of the url -->
+		</label> <input class="submission" type="submit" value="Go get it" />
+	</form>
+
+	<h1>GET using &lt;button&gt; element for submit button</h1>
+	<form action="/tngseason/episode">
+		<label> Review id: <input type="text" name="id" />
+		</label>
+		<button class="submission" type="submit">Go get it</button>
+	</form>
+
+	<h1>Now with &lt;radio&gt; button!</h1>
+	<form action="/tngseason/episode">
+		Review id: <label><input class="submission" type="radio"
+			name="id" value="1" />ID 1</label> <label><input class="submission"
+			type="radio" name="id" value="2" />ID 2</label> <label><input
+			class="submission" type="radio" name="id" value="3" />ID 3</label>
+		<button class="submission" type="submit">Go get it</button>
+	</form>
+
+	<h1>Now with &lt;select&gt;</h1>
+	<form action="/tngseason/episode">
+		Review id: 
+		<label>
+			<select class="submission" name="id">
+				<option value="1">ID 1</option>
+				<option value="2">ID 2</option>
+			</select>
+		</label>
+		<button class="submission" type="submit">Go get it</button>
+	</form>
+	
+	<h1>Using Post</h1>
+
+
+</body>
+</html>

@@ -17,11 +17,13 @@ public class EpisodeController {
 	private SeasonRepository tngSeasonRepo;
 	@Resource
 	private EpisodeRepository episodeRepo;
-
+	@Resource
+	private CommentRepository commentRepo;
 
 	@RequestMapping("/tngseason/episode")
 	public String fetchSeason(@RequestParam("id") long id, Model model) {
 		model.addAttribute("seasons", tngSeasonRepo.findAll());
+		model.addAttribute("comments", commentRepo.findAll());
 		model.addAttribute(episodeRepo.findOne(id));
 		return "episodeReview";
 	}

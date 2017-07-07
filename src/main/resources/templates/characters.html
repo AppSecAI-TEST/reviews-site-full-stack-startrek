@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>TNG Characters</title>
+<link rel="stylesheet" type="text/css" href="/style.css"/>
+		<link href="https://fonts.googleapis.com/css?family=Bubbler+One|Josefin+Sans:400, 600" rel="stylesheet"/>
+
+</head>
+<body>
+<h1 class="heading page-title">Paige's Reviews - Star Trek: The Next Generation</h1>
+		<div class="divider">
+	</div>
+	<div class="navbar">
+		<img class="main-logo" src="/images/sttnglaser_logo.jpg"
+		alt="Logo for Star Trek TNG - The Enterprise flying over a planet" />
+		<div class="navbar-text">
+			<div class="navbar-seasons">
+				<p th:each="current: ${seasons}">
+					<a th:href="@{/tngseason(id=${current.id})}" th:text="'Season ' + ${current.name}" />
+				</p>
+			</div>	
+			<div class="home-page">
+					<a th:href="@{/home}">Back to Home Page &rarr;</a>
+			</div>
+		</div>
+	</div>
+		<div class="divider">
+	</div>
+
+<h2 class="heading">Featured Characters: </h2>
+	
+		<ul class="character-list">
+			<li th:each="character: ${characters}"><span class="character-name" th:text="${character.name}" />
+			<form>
+			<label> 
+				Featured Episodes: <select name="id">
+				<option>---</option>
+				<option th:each="episodeForCharacter: ${character.episodes}" th:value="${episodeForCharacter.id}" th:text="'Season ' + ${episodeForCharacter.season} + ': ' + ${episodeForCharacter.name}"/>
+				</select>
+			</label>
+			<button th:formaction="@{/tngseason/episode}" type="submit">Go to episode</button>
+			<button class="delete" th:formaction="@{/characters/delete/{characterId}(characterId=${character.id})}">Delete Character</button>	
+			</form>
+			</li>
+		</ul>
+	
+	
+</body>
+</html>
