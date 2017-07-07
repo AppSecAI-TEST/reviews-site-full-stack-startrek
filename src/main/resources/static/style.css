@@ -72,6 +72,15 @@ li a, a:active {
 	justify-content: center;
 }
 
+.character-page a {
+	display: flex;
+	text-decoration: none;
+	font-size: 18px;
+	align-items: center;
+	justify-content: center;
+	margin-bottom: 15px;
+}
+
 .divider {
 	background-color: white;
 	margin: 3px 0px;
@@ -172,7 +181,7 @@ img.rating {
 
 .character-list button.delete {
 	background: black;
-	border: 2px solid white;
+	border: 1px solid white;
 	color: #ff325a;
 	display: flex;
 	margin-top: 3px;
@@ -180,10 +189,9 @@ img.rating {
 }
 
 .character-list select {
-	background-color: #84948d;
 	border: 1px solid #871a8e;
 	border-radius: 5px;
-	color: white;
+	color: black;
 	font-family: 'Josefin Sans', sans-serif;	
    -moz-border-radius: 5px;
    -webkit-border-radius: 5px;
